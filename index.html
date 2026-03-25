@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nexora - Smart App Analytics</title>
+    <title>Nexora - Smart Analytics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+        :root {
+            --bg: #f9fafc;
+            --text: #333;
+            --card: #fff;
+            --primary: #007BFF;
+        }
+
+        body.dark {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --card: #1e293b;
+            --primary: #38bdf8;
         }
 
         body {
-            background: #f9fafc;
-            color: #333;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.3s;
         }
 
-        /* NAVBAR */
-        .navbar {
+        /* NAV */
+        .nav {
             display: flex;
             justify-content: space-between;
             padding: 20px 40px;
-            background: white;
+            background: var(--card);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .logo {
             font-weight: bold;
-            font-size: 20px;
-            color: #007BFF;
+            color: var(--primary);
+        }
+
+        .toggle {
+            cursor: pointer;
+            font-size: 18px;
         }
 
         /* HERO */
@@ -38,56 +52,36 @@
             padding: 100px 20px;
             background: linear-gradient(135deg, #007BFF, #00c6ff);
             color: white;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
+            animation: fadeIn 1s ease;
         }
 
         .btn {
-            margin-top: 25px;
-            display: inline-block;
+            margin-top: 20px;
             background: white;
             color: #007BFF;
             padding: 12px 25px;
             border-radius: 25px;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+            display: inline-block;
         }
 
-        .btn:hover {
-            background: #e6f0ff;
-        }
-
-        /* SECTION */
+        /* SECTIONS */
         .section {
             padding: 60px 20px;
             text-align: center;
+            animation: fadeUp 1s ease;
         }
 
-        .section h2 {
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        /* FEATURES */
+        /* CARDS */
         .features {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
         }
 
         .card {
-            background: white;
+            background: var(--card);
             padding: 25px;
             width: 260px;
             border-radius: 15px;
@@ -96,95 +90,120 @@
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px) scale(1.03);
         }
 
-        .icon {
-            font-size: 30px;
-            margin-bottom: 10px;
+        /* DASHBOARD MOCK */
+        .dashboard {
+            margin-top: 30px;
+            background: var(--card);
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* CTA SECTION */
+        .bar {
+            height: 10px;
+            background: #ddd;
+            margin: 10px 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: var(--primary);
+            animation: grow 2s ease;
+        }
+
+        /* CTA */
         .cta {
-            background: #007BFF;
+            background: var(--primary);
             color: white;
             padding: 60px 20px;
         }
 
-        .cta .btn {
-            background: white;
-            color: #007BFF;
-        }
-
-        /* FOOTER */
         footer {
             background: #111;
             color: white;
             text-align: center;
             padding: 20px;
         }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeUp {
+            from {opacity: 0; transform: translateY(30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        @keyframes grow {
+            from {width: 0;}
+        }
     </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
+<!-- NAV -->
+<div class="nav">
     <div class="logo">Nexora</div>
+    <div class="toggle" onclick="toggleMode()">🌙</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
     <h1>Struggling to Retain Users?</h1>
-    <p>Turn drop-offs into growth with powerful analytics</p>
-    <a href="#" class="btn">Book a Demo</a>
-</div>
-
-<!-- ABOUT -->
-<div class="section">
-    <h2>Our Solution</h2>
-    <p>
-        Nexora is a smart analytics dashboard that helps you understand user behavior,
-        predict churn, and improve your app experience with actionable insights.
-    </p>
+    <p>Turn drop-offs into growth with Nexora</p>
+    <a class="btn" href="#">Book Demo</a>
 </div>
 
 <!-- FEATURES -->
 <div class="section">
-    <h2>Key Features</h2>
-
+    <h2>Features</h2>
     <div class="features">
-        <div class="card">
-            <div class="icon">📊</div>
-            <h3>Track Drop-offs</h3>
-            <p>Identify exactly where users leave your app.</p>
-        </div>
+        <div class="card">📊 Track drop-offs</div>
+        <div class="card">⚠️ Predict churn</div>
+        <div class="card">🎯 Actionable insights</div>
+    </div>
+</div>
 
-        <div class="card">
-            <div class="icon">⚠️</div>
-            <h3>Predict Churn</h3>
-            <p>Know which users are about to leave.</p>
-        </div>
+<!-- DASHBOARD -->
+<div class="section">
+    <h2>Live Analytics Dashboard</h2>
 
-        <div class="card">
-            <div class="icon">🎯</div>
-            <h3>Actionable Insights</h3>
-            <p>Get clear suggestions to improve retention.</p>
-        </div>
+    <div class="dashboard">
+        <p>User Drop-off Points</p>
+
+        <div class="bar"><span style="width: 80%"></span></div>
+        <div class="bar"><span style="width: 60%"></span></div>
+        <div class="bar"><span style="width: 40%"></span></div>
     </div>
 </div>
 
 <!-- CTA -->
 <div class="cta">
     <h2>Start Improving Retention Today</h2>
-    <p>Make smarter decisions with Nexora</p>
-    <a href="#" class="btn">Get Started</a>
+    <a class="btn" href="#">Get Started</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
-    <p>Contact: support@nexora.com</p>
+    <p>support@nexora.com</p>
 </footer>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
