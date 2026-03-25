@@ -1,31 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>App Insights</title>
+    <title>Nexora - App Insights</title>
     <style>
-        body { font-family: Arial; text-align: center; padding: 40px; }
-        h1 { color: #2c3e50; }
-        .btn { background: #007BFF; color: white; padding: 10px 20px; text-decoration: none; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            text-align: center;
+        }
+        .hero {
+            background: linear-gradient(135deg, #007BFF, #00c6ff);
+            color: white;
+            padding: 80px 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .section {
+            padding: 40px 20px;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
 
-<h1>Struggling to Retain Users After the First Week?</h1>
-<p>Most apps lose over 70% of users early.</p>
+<div class="hero">
+    <h1>Struggling to Retain Users?</h1>
+    <p>Turn drop-offs into growth with Nexora</p>
+    <a class="btn" href="#">Book a Demo</a>
+</div>
 
-<h2>Our Solution</h2>
-<p>A simple analytics dashboard that shows where users drop off, predicts churn, and suggests UI/UX improvements.</p>
+<div class="section">
+    <h2>Our Solution</h2>
+    <p>A smart analytics dashboard that shows where users drop off, predicts churn, and suggests improvements.</p>
+</div>
 
-<h2>Features</h2>
-<p>Track drop-offs | Predict churn | Actionable insights</p>
+<div class="section">
+    <h2>Features</h2>
+    <div class="features">
+        <div class="card">📊 Track user drop-offs</div>
+        <div class="card">⚠️ Predict churn early</div>
+        <div class="card">🎯 Actionable insights</div>
+    </div>
+</div>
 
-<h2>Why Us?</h2>
-<p>Easy to use | Affordable | Built for startups</p>
+<div class="section">
+    <h2>Why Choose Nexora?</h2>
+    <p>Simple. Affordable. Built for startups.</p>
+</div>
 
-<br><br>
-<a class="btn" href="#">Book a Demo</a>
-
-<p>Contact: support@appinsights.com</p>
+<footer>
+    <p>Contact: support@appinsights.com</p>
+</footer>
 
 </body>
 </html>
